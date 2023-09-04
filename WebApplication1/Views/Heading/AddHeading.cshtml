@@ -1,0 +1,29 @@
+﻿@model EntityLayer.Concrete.Heading
+@{
+    ViewBag.Title = "AddHeading";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>yeni yazar ekleme</h2>
+<br />
+@using (Html.BeginForm("AddHeading", "Heading", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("yazar adı")
+        @Html.TextBoxFor(x=>x.HeadingName,new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.he , new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterName)
+        <br /><br />
+        @Html.Label("yazar soyadı")
+        @Html.TextBoxFor(x => x.WriterSurName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterSurName)
+        <br /><br />
+        @Html.Label("yazar mail")
+        @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterMail)
+        <br /><br />
+       
+        <button class="btn btn-danger">başlığı ekle</button>
+    </div>
+}
+
