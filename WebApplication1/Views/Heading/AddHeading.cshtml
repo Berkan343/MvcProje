@@ -4,23 +4,22 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>yeni yazar ekleme</h2>
+<h2>yeni başlık ekleme</h2>
 <br />
 @using (Html.BeginForm("AddHeading", "Heading", FormMethod.Post))
 {
     <div class="form-group">
-        @Html.Label("yazar adı")
+        @Html.Label("başlık adı")
         @Html.TextBoxFor(x=>x.HeadingName,new { @class = "form-control" })
-       
-        @Html.ValidationMessageFor(x => x.WriterName)
+        @Html.ValidationMessageFor(x => x.HeadingName)
         <br /><br />
-        @Html.Label("yazar soyadı")
-        @Html.TextBoxFor(x => x.WriterSurName, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.WriterSurName)
+        @Html.Label("kategori")
+        @Html.TextBoxFor(x => x.CategoryID, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CategoryID)
         <br /><br />
-        @Html.Label("yazar mail")
-        @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.WriterMail)
+        @Html.Label("yazar ")
+        @Html.TextBoxFor(x => x.WriterID, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterID)
         <br /><br />
        
         <button class="btn btn-danger">başlığı ekle</button>

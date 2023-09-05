@@ -47,6 +47,7 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public List<T> List(Expression<Func<T, bool>> filter)
         {
+            //o başlığa ait kategorinin listesini getirmek
             return _object.Where(filter).ToList();
         }
 
