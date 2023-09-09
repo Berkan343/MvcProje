@@ -14,6 +14,7 @@ namespace EntityLayer.Concrete
         [StringLength(100)]
         public string ContentValue { get; set; }
         public DateTime ContentDate { get; set; }
+        public bool ContentStatus { get; set; }
 
         //ilişki yaptığımız tablodaki anahtarla aynı ismi veriyoruz
         public int HeadingID { get; set; }

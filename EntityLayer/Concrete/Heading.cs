@@ -14,7 +14,7 @@ namespace EntityLayer.Concrete
         [StringLength(100)]
         public string HeadingName { get; set; }
         public DateTime HeadingDate { get; set; }
-
+        public bool HeadingStatus { get; set; }
         //ilişki yaptığımız tablodaki anahtarla aynı ismi veriyoruz
         public int CategoryID { get; set; }
         //ilişkide olup olmadığını anlama

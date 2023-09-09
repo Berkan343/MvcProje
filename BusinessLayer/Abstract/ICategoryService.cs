@@ -10,6 +10,8 @@ namespace BusinessLayer.Abstract
     public interface ICategoryService
     {
         List<Category> GetList();
+        List<Category> GetListByID(int id);
+
 
         void CategoryAdd(Category category);
         //Silinecek veriyi buldurma id ye göre

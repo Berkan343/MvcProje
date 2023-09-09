@@ -43,5 +43,10 @@ namespace BusinessLayer.Concrete
         {
             return _categoryDal.List();
         }
+
+        public List<Category> GetListByID(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

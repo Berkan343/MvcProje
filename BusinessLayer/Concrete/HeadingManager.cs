@@ -31,11 +31,12 @@ namespace BusinessLayer.Concrete
 
         public void HeadingAdd(Heading heading)
         {
-            _headingDal.Update(heading);
+            _headingDal.Insert(heading);
         }
 
         public void HeadingDelete(Heading heading)
         {
+            heading.HeadingStatus = false;
             _headingDal.Update(heading);
         }
 
