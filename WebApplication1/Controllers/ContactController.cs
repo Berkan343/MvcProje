@@ -25,5 +25,9 @@ namespace WebApplication1.Controllers
             return View(contactvalues);
 
         }
+        public PartialViewResult MessageListMenu()
+        {
+
+        }
     }
 }
