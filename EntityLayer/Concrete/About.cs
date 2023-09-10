@@ -11,7 +11,7 @@ namespace EntityLayer.Concrete
     {
         //attribute koymak için enityfw kurduk dataanno using yaptık
         [Key]
-        public string AboutID { get; set; }
+        public int AboutID { get; set; }
         [StringLength(100)]
         public string AboutDetails1 { get; set; }
         [StringLength(100)]

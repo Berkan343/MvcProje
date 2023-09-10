@@ -1,0 +1,57 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>hakkımızda veri listesi</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Hakkımda başlığı</th>
+        <th>Aktif yap</th>
+        <th>Pasif yap</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.AboutID</th>
+            <th>başlık</th>
+            <th><a href="#" class="btn btn-warning">aktif ayap</a></th>
+            <th><a href="#" class="btn btn-danger">pasif ayap</a></th>
+        </tr>
+    }
+</table>
+<button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+    yeni hakkımızda yazı girişi
+</button>
+<div class="modal"id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">hakkımızda metin girişi</h2>
+
+            </div>
+            <form method="post" action="/About/AddAbout/">
+                <div class="modal-body">
+                    <label>hakkımızda metin 1</label>
+                    <input type="text" name="AboutDetails1" class="form-control" />
+                    <br />
+                    <label>hakkımızda metin 2</label>
+                    <input type="text" name="AboutDetails2" class="form-control" />
+                    <br />
+                    <label>hakkımızda görsel 1</label>
+                    <input type="text" name="AboutImage1" class="form-control" />
+                    <br />
+                    <label>hakkımızda görsel 2</label>
+                    <input type="text" name="AboutImage2" class="form-control" />
+                    <br />
+                    <button class="btn btn-info">kaydet</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
