@@ -29,5 +29,9 @@ namespace WebApplication1.Controllers
             abm.AboutAdd(p);
             return View("Index");
         }
+        public PartialViewResult AboutPartial()
+        {
+            return PartialView();
+        }
     }
 }
