@@ -27,7 +27,7 @@ namespace WebApplication1.Controllers
         }
         public PartialViewResult MessageListMenu()
         {
-
+            return PartialView();
         }
     }
 }
