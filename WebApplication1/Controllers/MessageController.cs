@@ -24,6 +24,12 @@ namespace WebApplication1.Controllers
             var messagelist = cm.GetListSendbox();
             return View(messagelist);
         }
+        public ActionResult GetInboxMessageDetails(int id)
+        {
+            var values = cm.GetByID(id);
+            return View(values);
+
+        }
         [HttpGet]
         public ActionResult NewMessage()
         {
