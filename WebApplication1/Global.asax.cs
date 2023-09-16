@@ -12,6 +12,9 @@ namespace WebApplication1
     {
         protected void Application_Start()
         {
+            //authorize proje seviyesine çıkarma
+            GlobalFilters.Filters.Add(new AuthorizeAttribute());
+            //
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

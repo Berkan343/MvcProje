@@ -9,9 +9,10 @@ using System.Web.Security;
 
 namespace WebApplication1.Controllers
 {
+    [AllowAnonymous]
+
     public class LoginController : Controller
     {
-
         // GET: Login
         [HttpGet]
         public ActionResult Index()
