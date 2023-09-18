@@ -25,7 +25,7 @@ namespace BusinessLayer.Concrete
 
         public void ContentyAdd(Content content)
         {
-            throw new NotImplementedException();
+            _contentDal.Insert(content);
         }
 
         public void ContentyUpdate(Content content)

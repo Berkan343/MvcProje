@@ -19,14 +19,15 @@ namespace WebApplication1.Controllers
         MessageManager mm = new MessageManager(new EFMessageDal());
         MessageValidator messagevalidator = new MessageValidator();
 
-        public ActionResult Inbox()
+        [Authorize]
+        public ActionResult Inbox(string p)
         {
-            var messagelist = mm.GetListInbox();
+            var messagelist = mm.GetListInbox(p);
             return View(messagelist);
         }
-        public ActionResult Sendbox()
+        public ActionResult Sendbox(string p)
         {
-            var messagelist = mm.GetListSendbox();
+            var messagelist = mm.GetListSendbox(p);
             return View(messagelist);
         }
         public ActionResult GetInboxMessageDetails(int id)

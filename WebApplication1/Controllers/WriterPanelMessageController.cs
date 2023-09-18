@@ -19,12 +19,16 @@ namespace WebApplication1.Controllers
         // GET: WriterPanelMessage
         public ActionResult Inbox()
         {
-            var messagelist = mm.GetListInbox();
+            string p = (string)Session["WriterMail"];
+
+            var messagelist = mm.GetListInbox(p);
             return View(messagelist);
         }
         public ActionResult Sendbox()
         {
-            var messagelist = mm.GetListSendbox();
+            string p = (string)Session["WriterMail"];
+
+            var messagelist = mm.GetListSendbox(p);
             return View(messagelist);
         }
         public PartialViewResult MessageListMenu()
@@ -53,9 +57,12 @@ namespace WebApplication1.Controllers
         [ValidateInput(false)]
         public ActionResult NewMessage(Message p)
         {
+            string sender = (string)Session["WriterMail"];
+
             ValidationResult results = mv.Validate(p);
             if (results.IsValid)
             {
+                p.SenderMail = sender;
                 p.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                 mm.MessageAdd(p);
                 return RedirectToAction("SendBox");

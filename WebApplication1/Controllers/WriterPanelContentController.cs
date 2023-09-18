@@ -15,8 +15,7 @@ namespace WebApplication1.Controllers
         ContentManager cm = new ContentManager(new EFContentDal());
         Context c = new Context();
         // GET: WriterPanelContent
-        public ActionResult MyContent(string p
-)
+        public ActionResult MyContent(string p)
         {
             
             
@@ -28,8 +27,10 @@ namespace WebApplication1.Controllers
             return View(contentvalues);
         }
         [HttpGet]
-        public ActionResult AddContent()
+        public ActionResult AddContent(int id)
+
         {
+            ViewBag.d = id;
             return View();
         }
         [HttpPost]
@@ -43,6 +44,10 @@ namespace WebApplication1.Controllers
             p.ContentStatus = true;
             cm.ContentyAdd(p);
             return RedirectToAction("MyContent");
+        }
+        public ActionResult ToDoList ()
+        {
+            return View();
         }
     }
 }
