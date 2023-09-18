@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using DataAccessLayer.Concrete;
 using System.Web.Security;
+using DataAccessLayer.EntityFramework;
+using BusinessLayer.Concrete;
 
 namespace WebApplication1.Controllers
 {
@@ -13,6 +15,7 @@ namespace WebApplication1.Controllers
 
     public class LoginController : Controller
     {
+        WriterLoginManager wm =new WriterLoginManager(new EFWriterDal());
         // GET: Login
         [HttpGet]
         public ActionResult Index()
@@ -47,9 +50,10 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult WriterLogin(Writer p)
         {
-            Context c = new Context();
-            var writeruserinfo = c.Writers.FirstOrDefault(x => x.WriterMail == p.WriterMail &&
-            x.WriterPassword == p.WriterPassword);
+            //Context c = new Context();
+            //var writeruserinfo = c.Writers.FirstOrDefault(x => x.WriterMail == p.WriterMail &&
+            //x.WriterPassword == p.WriterPassword);
+            var writeruserinfo=wm.GetWriter(p.WriterMail,p.WriterPassword);
             if (writeruserinfo != null)
             {
                 //sisteme giriş yapma sayfaları görmek için
