@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,14 @@ namespace WebApplication1.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+      
+        public ActionResult GetAllContent(string p)
+        {
+            // arama işlemi
+            var values=cm.GetList(p);
+          
+            return View(values);
         }
         public ActionResult ContentByHeading(int id)
 
